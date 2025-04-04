@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Newsletter</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    @theme {
+      --font-inter: 'Inter', sans-serif;
+      --color-background: #D9D9D9;
+      --color-foreground: #4A4A4A;
+      --color-background: #131213;
+      --color-cherryFlame: #DC484B;
+      --color-rosePunch: #D52A5C;
+      --color-purpleVelvet: #A43381;
+    }
+  </style>
+</head> 
+<body class="max-w-[1512px] w-full mx-auto flex flex-col justify-center min-h-dvh items-center bg-black text-white py-15">
+  <div class="flex flex-col gap-5 justify-center items-center py-28 md:py-14 px-14 md:px-36 bg-background w-[376px] md:w-[868px] rounded-2xl">
+    <h1 
+    class="
+    text-3xl md:text-4xl font-inter font-bold
+    bg-linear-to-r from-cherryFlame via-rosePunch to-purpleVelvet inline-block text-transparent bg-clip-text
+    ">
+      Quer se manter atualizado ?
+    </h1>
+    <p 
+    class="
+    text-2xl md:text-4xl font-inter font-bold
+    bg-linear-to-r from-cherryFlame via-rosePunch to-purpleVelvet inline-block text-transparent bg-clip-text
+    "
+    >
+      Se inscreva na nossa newsletter.
+  </p>
+  <form>
+    <div class="relative flex flex-col md:flex-row justify-center gap-7">
+      <input class="bg-white text-foreground text-lg px-15 w-[268px] h-[44px] md:h-[66px] rounded-2xl" type="email" name="" id="" placeholder="Seu email">
+      <img class="absolute top-3.5 md:top-6 left-4" src="./img/email.png" alt="vetor de email">
+      <button class="bg-linear-to-r from-cherryFlame to-purpleVelvet w-[268px] md:w-[224px] h-[57px] md:h-[66px] rounded-xl text-2xl font-inter font-bold cursor-pointer hover:brightness-125" type="submit">Inscrever-se</button>
+    </div>
+  </form>
+  <p class="text-foreground">Sem spam. Cancele a inscrição quando quiser.</p>
+</div>
+</body>
+</html>

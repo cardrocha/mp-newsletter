@@ -7,7 +7,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Newsletter</title>
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  
   <style type="text/tailwindcss">
     @theme {
       --font-inter: 'Inter', sans-serif;
@@ -37,14 +37,60 @@
     >
       Se inscreva na nossa newsletter.
   </p>
-  <form>
+  <form id="contact-form">
     <div class="relative flex flex-col md:flex-row justify-center gap-7">
-      <input class="bg-white text-foreground text-lg px-15 w-[268px] h-[44px] md:h-[66px] rounded-2xl" type="email" name="" id="" placeholder="Seu email">
+      <input class="bg-white text-foreground text-lg px-15 w-[268px] h-[44px] md:h-[66px] rounded-2xl" type="email" placeholder="Seu email" required>
       <img class="absolute top-3.5 md:top-6 left-4" src="./img/email.png" alt="vetor de email">
-      <button class="bg-linear-to-r from-cherryFlame to-purpleVelvet w-[268px] md:w-[224px] h-[57px] md:h-[66px] rounded-xl text-2xl font-inter font-bold cursor-pointer hover:brightness-125" type="submit">Inscrever-se</button>
+      <button id="submit-btn" class="flex items-center justify-center gap-2 bg-linear-to-r from-cherryFlame to-purpleVelvet w-[268px] md:w-[224px] h-[57px] md:h-[66px] rounded-xl text-2xl font-inter font-bold cursor-pointer hover:brightness-125" type="submit">
+        <img id="submit-icon" class="hidden" src="./img/loading.svg" alt="loading vetor">
+        <span id="submit-text">Inscrever-se</span>
+        <img id="submit-check" class="hidden" src="./img/check.svg" alt="loading check">  
+      </button>
     </div>
   </form>
+  <p class="message text-white text-2xl" id="message"></p>
   <p class="text-foreground">Sem spam. Cancele a inscrição quando quiser.</p>
 </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<script>
+  const form = document.getElementById('contact-form');
+  const message = document.getElementById('message');
+  const loadingIcon = document.getElementById('submit-icon');
+  const checkIcon = document.getElementById('submit-check');
+  const button = document.getElementById('submit-btn');
+  const buttonText = document.getElementById('submit-text');
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  checkIcon.classList.add('hidden');
+  loadingIcon.classList.remove('animate-spin');
+  loadingIcon.classList.add('hidden');
+  buttonText.classList.remove('hidden');
+  button.classList.remove('text-base', 'font-semibold');
+  button.classList.add('text-2xl', 'font-bold');
+
+  message.textContent = "Enviando...";
+  buttonText.classList.add('hidden');
+  loadingIcon.classList.remove('hidden');
+  loadingIcon.classList.add('animate-spin');
+
+  setTimeout(() => {
+    message.textContent = "Formulário enviado com sucesso!";
+    form.reset();
+
+    loadingIcon.classList.remove('animate-spin');
+    loadingIcon.classList.add('hidden');
+
+    checkIcon.classList.remove('hidden');
+    buttonText.innerText = "Inscrição concluída";
+    buttonText.classList.remove('hidden');
+
+    button.classList.remove('text-2xl', 'font-bold');
+    button.classList.add('text-base', 'font-semibold');
+  }, 2000);
+});
+
+</script>
 </html>
